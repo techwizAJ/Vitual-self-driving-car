@@ -13,38 +13,6 @@ This is a Self-Driving Car steering simulator based on Sully Chen's [model](http
 
 ![][image0]
 
-Vitual Self-Driving Car
-built in Unity
-add new tracks, change prebuilt scripts like gravity acceleration easily
-Data Generation
-records images from center, left, and right cameras w/ associated steering angle, speed, throttle and brake.
-saves to CSV
-ideally you have a joystick, but keyboard works too
-Training Mode - Behavioral cloning
-We use a 9 layer convolutional network, based off of Nvidia's end-to-end learning for self driving car paper. 72 hours of driving data was collected in all sorts of conditions from human drivers
-
-Hardware design:
-(https://devblogs.nvidia.com/parallelforall/wp-content/uploads/2016/08/data-collection-system.png "Logo Title Text 1")
-
-3 cameras
-The steering command is obtained by tapping into the vehicle’s Controller Area Network (CAN) bus.
-Nvidia's Drive PX onboard computer with GPUs
-In order to make the system independent of the car geometry, the steering command is 1/r, where r is the turning radius in meters. 1/r was used instead of r to prevent a singularity when driving straight (the turning radius for driving straight is infinity). 1/r smoothly transitions through zero from left turns (negative values) to right turns (positive values).
-
-Software Design (supervised learning!) :
-alt text
-
-Images are fed into a CNN that then computes a proposed steering command. The proposed command is compared to the desired command for that image, and the weights of the CNN are adjusted to bring the CNN output closer to the desired output. The weight adjustment is accomplished using back propagation
-
-Eventually, it generated steering commands using just a single camera
-
-alt text
-
-Testing mode
-We will just run autonomous mode, then run our model and the car will start driving
-
-alt text
-
 #  _**How to run**_
   * _**To drive simply type the following command in while in the project directory** (I have made the project using tensorflow such that there is no need to type `model.json` in front of it):_
     > **`python drive.py`**
