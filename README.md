@@ -1,4 +1,4 @@
-# **Self-Driving Car Steering Simulator**
+# ** Virtual Self-Driving Simulator**
 
 This is a Self-Driving Car steering simulator based on Sully Chen's [model](https://github.com/SullyChen/Autopilot-TensorFlow/blob/master/model.py) implementation of the NVIDIA End to End Learning for Self-Driving Cars **(DAVE-2)** [paper](https://arxiv.org/pdf/1604.07316.pdf).
 
